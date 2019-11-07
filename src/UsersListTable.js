@@ -30,9 +30,12 @@ class UsersListTable extends React.Component {
         });
     }
 
-    render() {
+    handleList() {
+        fetch('http://localhost:8080/users/').then(result => result.json()).then(data => console.log(data)).catch(err => console.log(err));
+        setTimeout("window.location.reload()", 500);
+    };
 
-        /*sendUsers({id: this.id, name: this.name, age: this.age, country: this.country});*/
+    render() {
 
         const handleUpdateUser = id => {
             fetch('http://localhost:8080/users/' + id, {
@@ -47,13 +50,16 @@ class UsersListTable extends React.Component {
                     })
                 }
             ).then(result => result.json()).then(data => console.log(data)).catch(err => console.log(err));
+            this.handleList();
+
         };
 
         const handleDeleteUser = id => {
             let answer = window.confirm('Вы уверены, что хотите удалить пользователя?');
             if (answer) {
                 fetch('http://localhost:8080/users/' + id,
-                    {method: 'DELETE'}).then(result => console.log(result))
+                    {method: 'DELETE'}).then(result => console.log(result));
+                this.handleList();
             }
         };
 

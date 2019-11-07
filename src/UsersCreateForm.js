@@ -12,6 +12,7 @@ class UsersCreateForm extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCancelReset = this.handleCancelReset.bind(this);
     }
 
     handleChange(event) {
@@ -26,6 +27,11 @@ class UsersCreateForm extends React.Component {
         });
     }
 
+    handleList() {
+        fetch('http://localhost:8080/users').then(result => result.json()).then(data => console.log(data)).catch(err => console.log(err));
+        setTimeout("window.location.reload()", 500);
+    };
+
     handleSubmit() {
         fetch('http://localhost:8080/users/',
             {
@@ -39,6 +45,20 @@ class UsersCreateForm extends React.Component {
                 })
             }
         ).then(result => result.json()).then(data => console.log(data)).catch(err => console.log(err));
+        this.setState({
+            name: '',
+            age: '',
+            country: '',
+        });
+        this.handleList();
+    }
+
+    handleCancelReset() {
+        this.setState({
+            name: '',
+            age: '',
+            country: '',
+        });
     }
 
     render() {
@@ -88,7 +108,7 @@ class UsersCreateForm extends React.Component {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal"
-                                        id="btn-create-user-cancel">Отмена
+                                        id="btn-create-user-cancel" onClick={this.handleCancelReset}>Отмена
                                 </button>
                                 <button type="button" className="btn btn-primary" id="btn-create-user"
                                         data-dismiss="modal"
