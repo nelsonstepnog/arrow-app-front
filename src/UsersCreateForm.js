@@ -78,7 +78,7 @@ class UsersCreateForm extends React.Component {
                             <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalLabel">Создать пользователя</h5>
                                 <button type="button" className="close" id="create-close-cross" data-dismiss="modal"
-                                        aria-label="Close">
+                                        aria-label="Close" onClick={this.handleCancelReset}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
