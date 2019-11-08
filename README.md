@@ -1,6 +1,6 @@
 # arrow-app-front
 
-Небольшой пример наипростейшего приложения на React + Redux. Бэкенд можно взять здесь:
+Небольшой пример наипростейшего приложения на React & Redux. Бэкенд можно взять здесь:
 [https://github.com/nelsonstepnog/arrow-app.git]()
 
 Чтобы запустить фронтовое приложение выполните в терминале в корне проекта следующие команды:
@@ -10,14 +10,15 @@
 ### `$ sudo npm run start`
 
 Веб-сервис будет доступен по адресу:
-[http://localhost:3000](http://localhost:3000)
+-----------------------------------------------------------------------
+[http://localhost:3000]()
 
 
 Проверка запросами JS в консоли devTools, данные летят в АПИ и сохраняются в БД:
 -----------------------------------------------------------------------
 1.) Создать одного пользователя:
 
-fetch('/users', 
+fetch('http://localhost:8080/users', 
   { 
     method: 'POST', 
     headers: { 'Content-Type': 'application/json' },
@@ -26,14 +27,15 @@ fetch('/users',
 ).then(result => result.json().then(console.log))
 
 -----------------------------------------------------------------------
-2.) Получить пользователя:
+2.) Получить пользователя / список пользователей:
 
-fetch('/users/1').then(response => response.json().then(console.log))
+fetch('http://localhost:8080/users/60').then(response => response.json().then(console.log))
+fetch('http://localhost:8080/users/').then(response => response.json().then(console.log))
 
 -----------------------------------------------------------------------
 3.) Обновить одного пользователя:
 
-fetch('/users/1', 
+fetch('http://localhost:8080/users/60', 
   { 
     method: 'PUT', 
     headers: { 'Content-Type': 'application/json' }, 
@@ -44,6 +46,6 @@ fetch('/users/1',
 -----------------------------------------------------------------------
 4.) Удалить одного пользователя:
 
-fetch('/users/1', { method: 'DELETE' }).then(result => console.log(result))
+fetch('http://localhost:8080/users/60', { method: 'DELETE' }).then(result => console.log(result))
 
 -----------------------------------------------------------------------
