@@ -14,10 +14,10 @@ class UsersBanner extends React.Component {
                          alt="Фоновое изображение"/>
                 </div>
                 <div className="header__banner-image-shadow-glass"/>
-                <h2 className="header__head-first-text">In this place will be located the main text</h2>
+                <h2 className="header__head-first-text">In this place will be located the main text of Arrow-app</h2>
                 <p className="header__line-top">______________________________________________________________________</p>
                 <p className="header__line-bottom">______________________________________________________________________</p>
-                <h3 className="header__head-second-text">This place is for subtitle text</h3>
+                <h3 className="header__head-second-text">This place is for subtitle text of Arrow-app</h3>
                 <Link className="header__button-scroll-to" activeClass="active" smooth={true} offset={-70}
                       duration={800} to="header__to-body-link" href={"#header__to-body-link"}>Подробнее...</Link>
                 <a className="header__to-body-link" id="header__to-body-link" href={"#header__to-body-link"}>
