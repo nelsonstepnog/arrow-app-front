@@ -73,7 +73,7 @@ class UsersListTable extends React.Component {
                     </thead>
                     <tbody>
                     {this.props.users.map((user => {
-                        return <tr key={user.id}>
+                        return <tr className="user_row" key={user.id}>
                             <th className="id-user-td" scope="row">{user.id}</th>
                             <td className="name-td">{user.name}</td>
                             <td className="age-td">{user.age}</td>
@@ -101,14 +101,14 @@ class UsersListTable extends React.Component {
                                                         <div className="form-user-name"><br/>
                                                             <label className="label-name">Имя пользователя</label><br/>
                                                             <input type="text" className="form-control" id="name"
-                                                                   value={this.state.name}
+                                                                   value={user.name}
                                                                    onChange={this.handleChange}
                                                                    placeholder="Введите имя"/>
                                                         </div>
                                                         <div className="form-user-age"><br/>
                                                             <label className="label-age">Возраст</label><br/>
                                                             <input type="text" className="form-control" id="age"
-                                                                   value={this.state.age}
+                                                                   value={user.age}
                                                                    onChange={this.handleChange}
                                                                    placeholder="Введите возраст"/>
                                                         </div>
@@ -116,7 +116,7 @@ class UsersListTable extends React.Component {
                                                         <div className="form-user-country">
                                                             <label className="label-country">Страна</label><br/>
                                                             <input type="text" className="form-control" id="country"
-                                                                   value={this.state.country}
+                                                                   value={user.country}
                                                                    onChange={this.handleChange}
                                                                    placeholder="Введите страну"/>
                                                         </div>
